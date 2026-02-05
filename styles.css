@@ -1,0 +1,133 @@
+*
+ {
+    margin: 0; /*remover as margens do navegador*/
+    padding: 0; /*remover os preenchimentos padrão do navegador*/
+    box-sizing: border-box; /*Garannte que bordas não aumentem o tamanho dos elemntos*/
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*Estilizar barra de navegação*/
+.navbar
+{
+background-color: rgb(219, 153, 186);
+color: rgb(245, 220, 238);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 5%;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0; /*remover a margem padrão da lista*/
+    padding: 0; /*remover o preenchimento padrão da lista*/
+}
+
+.navbar ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.navbar ul li a:hover {
+    background-color: rgb(255, 140, 201); /*cor de fundo ao passar o mouse*/
+    color: white; /*cor do texto ao passar o mouse*/
+    box-shadow: 0px 4px 10px rgba(120, 21, 97, 0.2); /*sombra ao passar o mouse*/
+    /*
+    0px -> deslocamento horizontal da sombra
+    4px -> deslocamento vertical da sombra
+    10px -> desfoque da sombra
+    rgba(120, 21, 97, 0.2) -> cor da sombra com transparência
+    */
+    transform: translateY(-2px); /*move a box 2px para cima ao passar o mouse*/
+
+}
+
+/*Estilizar o carrossel de imagens*/
+.slider {
+
+    margin: 20px auto; /*centralizar na tela da margem*/
+    width: 730px; /*definir a largura do carrossel*/
+    height: 400px; /*definir a altura do carrossel*/
+    overflow: hidden; /*esconder as partes das imagens que saem do carrossel*/
+    border-radius: 10px; /*arredondar os cantos do carrossel*/
+    box-shadow: 0 10px 20px rgba(152, 24, 122, 0.434); /*adicionar uma sombra ao redor do carrossel*/
+
+}
+/*Div que contém as imagen alinhadas */
+
+.slider-content
+{
+    width: 400%; /*definir a largura do conteúdo do carrossel para acomodar todas as imagens*/
+    height: 100%; /*definir a altura do conteúdo do carrossel para ocupar toda a altura do carrossel*/
+    display: flex; /*coloca as imagens uma do lado da outra*/
+}
+
+/*esconde os botões originais8*/
+
+.slider-content input 
+{
+    display: none; /*esconde os botões de rádio*/
+}
+
+/*estilo de cada caixa da imagem*/
+.slide-box
+{
+    width: 25%; /*Cada foto ocupa 25% (100% divido por 4 imagens)*/
+    transition: 0.6s; /*tempo de animação de deslize entre as fotos*/
+}
+
+
+/* Garante que a imagem cubra toda a caixa sem distorcer */
+.slide-box img
+{
+    width: 800px; /*definir a largura da imagem para ocupar toda a largura da caixa*/
+    height: 100px; /*definir a altura da imagem para ocupar toda a altura da caixa*/
+    object-fit: cover; /*garante que a imagem preencha a caixa sem distorcer*/
+}
+
+/* LÓGICA DE MOVIMENTO: AJUSTADO PARA 4 IMAGENS */
+
+/* Imagem 1: margem 0 */
+#radio1:checked ~ .first {  margin-left: 0;}
+
+/* Imagem 2: pula a primeira (25%)*/
+#radio2:checked ~ .first {margin-left: -25%;}
+
+/* Imagem 3: pula as duas primeiras (50%)*/
+#radio3:checked ~ .first {margin-left: -50%; }
+
+/* Imagem 4: pula as três primeiras (75%)*/
+#radio4:checked ~ .first {margin-left: -75%; }
+
+/*ESTILOS DOS BOTÕES MANUAIS (BOLINHAS)*/
+.nav-manual
+{
+    position: absolute; /*posiciona os botões manualmente*/
+    width: 730px; /* mesma largura do slider*/
+    margin-top: -40px; /*joga as bolinhas para dentro da imagem*/
+    display: flex; /*coloca os botões em linha*/
+    justify-content: center; /*centraliza os botões*/
+}
+
+.manual-btn
+{
+    border: 2px solid pink ; /*cor da borda dos botões*/
+    padding: 5px; /*espaçamento interno dos botões*/
+    border-radius: 10px; /*deixa os botões redondos*/
+    cursor: pointer; /*muda o cursor para indicar que é clicável*/
+    margin-left: 10px; /*espaçamento entre os botões*/
+    transition: 0.3s; /*Suaviza a mudança de cor no hover*/
+}
+
+.manual-btn:hover
+{
+    background-color:white; /*cor de fundo ao passar o mouse*/
+}
+

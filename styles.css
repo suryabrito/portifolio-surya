@@ -1,0 +1,127 @@
+*
+ {
+    margin: 0; /*remover as margens do navegador*/
+    padding: 0; /*remover os preenchimentos padrão do navegador*/
+    box-sizing: border-box; /*Garannte que bordas não aumentem o tamanho dos elemntos*/
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*Estilizar barra de navegação*/
+.navbar
+{
+background-color: rgb(219, 153, 186);
+color: rgb(245, 220, 238);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 5%;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0; /*remover a margem padrão da lista*/
+    padding: 0; /*remover o preenchimento padrão da lista*/
+    gap: 10px; /*espaçamento entre os itens da lista*/
+
+}
+
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+
+.navbar ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.navbar ul li a:hover {
+    background-color: rgb(255, 140, 201); /*cor de fundo ao passar o mouse*/
+    color: white; /*cor do texto ao passar o mouse*/
+    box-shadow: 0px 4px 10px rgba(120, 21, 97, 0.2); /*sombra ao passar o mouse*/
+    /*
+    0px -> deslocamento horizontal da sombra
+    4px -> deslocamento vertical da sombra
+    10px -> desfoque da sombra
+    rgba(120, 21, 97, 0.2) -> cor da sombra com transparência
+    */
+    transform: translateY(-2px); /*move a box 2px para cima ao passar o mouse*/
+
+}
+
+/*Estilizar o carrossel de imagens*/
+.slider {
+
+    margin: 20px auto; /*centralizar na tela da margem*/
+    width: 730px; /*definir a largura do carrossel*/
+    height: 400px; /*definir a altura do carrossel*/
+    overflow: hidden; /*esconder as partes das imagens que saem do carrossel*/
+    border-radius: 10px; /*arredondar os cantos do carrossel*/
+    box-shadow: 0 10px 20px rgba(152, 24, 122, 0.434); /*adicionar uma sombra ao redor do carrossel*/
+
+}
+/*Div que contém as imagen alinhadas */
+
+.slider-content
+{
+    width: 400%; /*definir a largura do conteúdo do carrossel para acomodar todas as imagens*/
+    height: 100%; /*definir a altura do conteúdo do carrossel para ocupar toda a altura do carrossel*/
+    display: flex; /*coloca as imagens uma do lado da outra*/
+}
+
+/*esconde os botões originais8*/
+
+
+
+/*estilo de cada caixa da imagem*/
+.slide-box
+{
+    width: 25%; /*Cada foto ocupa 25% (100% divido por 4 imagens)*/
+    transition: 0.6s; /*tempo de animação de deslize entre as fotos*/
+}
+
+
+/* Garante que a imagem cubra toda a caixa sem distorcer */
+.slide-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ANIMAÇÃO AUTOMÁTICA */
+
+@keyframes slideAnim {
+    0%, 20% { transform: translateX(0); }
+
+    25%, 45% { transform: translateX(-25%); }
+
+    50%, 70% { transform: translateX(-50%); }
+
+    75%, 95% { transform: translateX(-75%); }
+
+    100% { transform: translateX(0); }
+}
+
+
+/* APLICA A ANIMAÇÃO */
+.slide-content {
+    width: 400%;
+    display: flex;
+    animation: slideAnim 12s infinite;
+
+}
+
+
+
+
